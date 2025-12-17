@@ -13,7 +13,8 @@
 .page-title {
     font-size: 36px;
     margin-bottom: 8px;
-    color: #e5e7eb;
+    color: #38bdf8;
+
 }
 
 .page-subtitle {
@@ -30,8 +31,10 @@
 
 /* Card */
 .post-card {
-    background: #020617;
-    border: 1px solid #1e293b;
+    background: #ffffff;
+    border: 1px solid #333539;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
+
     border-radius: 14px;
     padding: 22px;
     display: flex;
@@ -51,7 +54,7 @@
 }
 
 .post-title a {
-    color: #e5e7eb;
+    color: #111;
     text-decoration: none;
     transition: color 0.3s ease;
 }
@@ -63,7 +66,7 @@
 /* Meta */
 .post-meta {
     font-size: 14px;
-    color: #94a3b8;
+    color: #777;
     display: flex;
     justify-content: space-between;
     gap: 10px;
@@ -72,11 +75,12 @@
 
 /* Body with ellipsis for 3 lines */
 .post-body {
+    color: #333;
     font-size: 15px;
     line-height: 1.6; /* Important: numeric value */
     display: -webkit-box;
     -webkit-box-orient: vertical;
-    -webkit-line-clamp: 3;
+    -webkit-line-clamp: 5;
     overflow: hidden;
 }
 
