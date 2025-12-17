@@ -1,0 +1,61 @@
+/* ===== ABOUT HERO ===== */
+.about-hero {
+    text-align: center;
+    padding: 60px 20px;
+}
+
+.about-hero h1 {
+    font-size: 36px;
+    color: #38bdf8;
+    margin-bottom: 10px;
+}
+
+.about-hero p {
+    color: #cbd5f5;
+    font-size: 17px;
+}
+
+/* ===== ABOUT CONTENT ===== */
+.about-content {
+    margin-top: 40px;
+    display: grid;
+    gap: 24px;
+}
+
+/* ===== ABOUT CARD ===== */
+.about-card {
+    background: #222;
+    border: 1px solid #1e293b;
+    padding: 26px;
+    border-radius: 14px;
+}
+
+.about-card h2 {
+    margin-bottom: 12px;
+    color: #fff;
+}
+
+.about-card p {
+    color: #cbd5f5;
+    line-height: 1.7;
+    font-size: 15px;
+}
+
+/* List */
+.about-card ul {
+    margin-top: 10px;
+    padding-left: 20px;
+}
+
+.about-card ul li {
+    margin-bottom: 8px;
+    color: #cbd5f5;
+    font-size: 15px;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+    .about-hero h1 {
+        font-size: 28px;
+    }
+}

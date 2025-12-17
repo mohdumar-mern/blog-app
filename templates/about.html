@@ -1,0 +1,49 @@
+{% extends 'layout.html' %}
+{% load static %}
+
+{% block title %}About | MySite{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/about.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<section class="about-hero">
+    <h1>About This Project</h1>
+    <p>
+        A modern Django blog platform built to learn, practice, and ship real-world applications.
+    </p>
+</section>
+
+<section class="about-content">
+    <div class="about-card">
+        <h2>👋 Hello Developers</h2>
+        <p>
+            Welcome to <strong>MySite</strong> — a Django-based learning project where we focus on
+            writing clean, scalable, and production-ready code.
+        </p>
+    </div>
+
+    <div class="about-card">
+        <h2>🚀 What You’ll Learn</h2>
+        <ul>
+            <li>Django Models, Views & Templates (MVT)</li>
+            <li>User Authentication (Login / Logout / Register)</li>
+            <li>CRUD Operations with real examples</li>
+            <li>Clean UI with reusable layouts</li>
+            <li>Production-ready project structure</li>
+        </ul>
+    </div>
+
+    <div class="about-card">
+        <h2>🎯 Project Goal</h2>
+        <p>
+            The goal of this project is to help developers move from
+            <strong>basic Django knowledge</strong> to
+            <strong>real-world application development</strong>.
+        </p>
+    </div>
+</section>
+
+{% endblock %}

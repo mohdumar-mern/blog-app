@@ -1,0 +1,34 @@
+{% extends 'layout.html' %}
+{% load static %}
+
+{% block title %}Home{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/home.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<section class="hero">
+    <div class="hero-content">
+        <h1>Build Powerful Django Apps 🚀</h1>
+        <p>
+            Learn Django step-by-step and create real-world projects with clean UI,
+            authentication, posts, and more.
+        </p>
+
+        <div class="hero-actions">
+            <a href="{% url 'posts:list' %}" class="btn-primary">Explore Posts</a>
+            <a href="{% url 'users:register' %}" class="btn-secondary">Get Started</a>
+        </div>
+    </div>
+</section>
+
+
+<section class="cta">
+    <h2>Ready to Build Something Awesome?</h2>
+    <p>Create your first Django post and see it live instantly.</p>
+    <a href="{% url 'posts:new-post' %}" class="btn-primary">Create Your First Post</a>
+</section>
+
+{% endblock %}

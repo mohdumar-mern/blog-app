@@ -1,0 +1,110 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>{% block title %}MySite{% endblock %}</title>
+
+    <!-- Global CSS -->
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+    <!-- Page Specific CSS -->
+    {% block extra_css %}{% endblock %}
+</head>
+<body>
+
+<!-- ================= NAVBAR ================= -->
+<header class="navbar">
+    <div class="container">
+        <a href="{% url 'home' %}" class="brand">MySite</a>
+
+        <nav>
+            <ul class="nav-links">
+                <li>
+                    <a href="{% url 'home' %}">
+                        🏠 <span>Home</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="{% url 'about' %}">
+                        🧽 <span>About</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="{% url 'posts:list' %}">
+                        📰 <span>Posts</span>
+                    </a>
+                </li>
+
+                {% if user.is_authenticated %}
+                    <li>
+                        <a href="{% url 'posts:new-post' %}">
+                            ✍ <span>Create Post</span>
+                        </a>
+                    </li>
+
+                    <li class="nav-user">
+                        <form method="POST" action="{% url 'users:logout' %}">
+                            {% csrf_token %}
+                            <button type="submit" class="logout-btn">
+                                Logout
+                            </button>
+                        </form>
+                    </li>
+                {% else %}
+                    <li>
+                        <a href="{% url 'users:register' %}">
+                            🧾 <span>Register</span>
+                        </a>
+                    </li>
+                {% endif %}
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<!-- ================= MAIN CONTENT ================= -->
+<main class="content container">
+    {% block content %}
+    {% endblock %}
+</main>
+
+<!-- ================= FOOTER ================= -->
+<footer class="footer">
+    <div class="footer-container container">
+
+        <div class="footer-column">
+            <h3>MySite</h3>
+            <p>Your simple Django learning & project hub.</p>
+        </div>
+
+        <div class="footer-column">
+            <h4>Quick Links</h4>
+            <ul>
+                <li><a href="{% url 'home' %}">🏠 Home</a></li>
+                <li><a href="{% url 'about' %}">🧽 About</a></li>
+                <li><a href="{% url 'posts:list' %}">📰 Posts</a></li>
+                {% comment %} <li><a href="{% url 'contact' %}">📞 Contact</a></li> {% endcomment %}
+            </ul>
+        </div>
+
+        <div class="footer-column">
+            <h4>Contact</h4>
+            <p>📩 support@mysite.com</p>
+            <p>📞 +91 98765 43210</p>
+        </div>
+
+    </div>
+
+    <div class="footer-bottom">
+        <p>© {% now "Y" %} MySite — All Rights Reserved.</p>
+    </div>
+</footer>
+
+{% block extra_js %}{% endblock %}
+</body>
+</html>

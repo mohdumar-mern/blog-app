@@ -1,0 +1,101 @@
+.posts-section {
+    max-width: 1100px;
+    margin: auto;
+    padding: 40px 20px;
+}
+
+/* Header */
+.posts-header {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.page-title {
+    font-size: 36px;
+    margin-bottom: 8px;
+    color: #e5e7eb;
+}
+
+.page-subtitle {
+    font-size: 16px;
+    color: #94a3b8;
+}
+
+/* Grid */
+.posts-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 24px;
+}
+
+/* Card */
+.post-card {
+    background: #020617;
+    border: 1px solid #1e293b;
+    border-radius: 14px;
+    padding: 22px;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.post-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+}
+
+/* Title */
+.post-title {
+    font-size: 20px;
+    margin-bottom: 12px;
+}
+
+.post-title a {
+    color: #e5e7eb;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.post-title a:hover {
+    color: #38bdf8;
+}
+
+/* Meta */
+.post-meta {
+    font-size: 14px;
+    color: #94a3b8;
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    margin-bottom: 12px;
+}
+
+/* Body with ellipsis for 3 lines */
+.post-body {
+    font-size: 15px;
+    line-height: 1.6; /* Important: numeric value */
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    overflow: hidden;
+}
+
+
+/* Empty State */
+.empty-state {
+    text-align: center;
+    padding: 80px 20px;
+    color: #94a3b8;
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+    .page-title {
+        font-size: 28px;
+    }
+
+    .post-meta {
+        flex-direction: column;
+        gap: 6px;
+    }
+}

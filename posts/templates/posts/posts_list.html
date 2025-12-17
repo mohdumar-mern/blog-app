@@ -1,0 +1,49 @@
+{% extends 'layout.html' %}
+{% load static %}
+
+{% block title %}Posts | MySite{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/post_list.css' %}">
+{% endblock %}
+
+{% block content %}
+<section class="posts-section">
+
+    <header class="posts-header">
+        <h1 class="page-title">Latest Posts</h1>
+    </header>
+
+    {% if posts %}
+        <div class="posts-grid">
+            {% for post in posts %}
+                <article class="post-card">
+
+                    <h2 class="post-title">
+                        <a href="{% url 'posts:page' slug=post.slug %}">
+                            {{ post.title }}
+                        </a>
+                    </h2>
+
+                    <div class="post-meta">
+                        <span class="post-author">By {{ post.by.username }}</span>
+                        <time datetime="{{ post.date|date:'Y-m-d' }}" class="post-date">
+                            {{ post.date|date:"F d, Y" }}
+                        </time>
+                    </div>
+
+                    <div class="post-body">
+                        {{ post.body }}
+                    </div>
+
+                </article>
+            {% endfor %}
+        </div>
+    {% else %}
+        <div class="empty-state">
+            <p>No posts available yet.</p>
+        </div>
+    {% endif %}
+
+</section>
+{% endblock %}

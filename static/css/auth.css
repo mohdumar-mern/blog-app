@@ -1,0 +1,182 @@
+/* ===============================
+   Django Form Errors
+================================ */
+.form-errors {
+    background-color: #fff1f1;
+    border: 1px solid #ff6b6b;
+    color: #b00020;
+    padding: 14px 16px;
+    border-radius: 10px;
+    margin-bottom: 22px;
+}
+
+.form-errors ul {
+    margin: 0;
+    padding-left: 18px;
+}
+
+.form-errors li {
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+/* ===============================
+   Error Field Highlight
+================================ */
+input.error,
+select.error,
+textarea.error {
+    border-color: #ff6b6b;
+    background-color: #fff7f7;
+}
+
+/* ===============================
+   Auth Layout
+================================ */
+.auth-section {
+    min-height: 75vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 16px;
+}
+
+.auth-card {
+    width: 100%;
+    max-width: 420px;
+    background: #ffffff;
+    padding: 36px 34px;
+    border-radius: 16px;
+    box-shadow: 0 18px 45px rgba(0, 0, 0, 0.12);
+}
+
+/* ===============================
+   Title
+================================ */
+.auth-title {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 26px;
+    color: #111;
+    font-weight: 700;
+}
+
+/* ===============================
+   Form
+================================ */
+.auth-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group {
+    margin-bottom: 18px;
+}
+
+.form-group label {
+    display: block;
+    font-size: 0.9rem;
+    margin-bottom: 6px;
+    color: #444;
+    font-weight: 500;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 12px 14px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 0.95rem;
+    transition: border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.form-group input:focus {
+    outline: none;
+    border-color: #111;
+    box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.08);
+}
+
+/* ===============================
+   Password Toggle
+================================ */
+.form-group .password-group {
+    position: relative;
+}
+
+ .password-group input {
+    padding-right: 480px;
+}
+
+.toggle-password {
+    position: absolute;
+    right: 14px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    font-size: 18px;
+    user-select: none;
+    opacity: 0.65;
+    transition: opacity 0.2s ease;
+
+}
+
+.toggle-password:hover {
+    opacity: 1;
+}
+
+/* ===============================
+   Button
+================================ */
+.auth-btn {
+    margin-top: 12px;
+    padding: 13px;
+    border: none;
+    border-radius: 10px;
+    background: #111;
+    color: #fff;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.25s ease, transform 0.15s ease;
+}
+
+.auth-btn:hover {
+    background: #222;
+}
+
+.auth-btn:active {
+    transform: scale(0.98);
+}
+
+/* ===============================
+   Footer
+================================ */
+.auth-footer {
+    margin-top: 22px;
+    text-align: center;
+    font-size: 0.9rem;
+    color: #555;
+}
+
+.auth-footer a {
+    color: #111;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.auth-footer a:hover {
+    text-decoration: underline;
+}
+
+/* ===============================
+   Responsive
+================================ */
+@media (max-width: 480px) {
+    .auth-card {
+        padding: 26px 22px;
+    }
+
+    .auth-title {
+        font-size: 1.6rem;
+    }
+}
