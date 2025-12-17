@@ -1,22 +1,53 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from .models import Post
-from .forms import PostForm
+from django.db.models import Count,Q
+from .forms import PostForm, CommentForm
 from django.contrib.auth.decorators import login_required
 
-
 def posts_list(request):
-    # posts = Post.objects.all().order_by('-created_at')
-    posts = Post.objects.filter(is_published=True).select_related("author").order_by('-created_at')
+    posts = (
+        Post.objects
+        .filter(is_published=True)
+        .select_related("author")
+        .annotate(
+            total_comments=Count(
+                'comments',
+                filter=Q(comments__is_active=True)
+            )
+        )
+        .order_by('-created_at')
+    )
 
     return render(request, 'posts/posts_list.html', {
         'posts': posts
     })
 
-def post_page(request, slug):
-    post = Post.objects.get(slug=slug)
-    return render(request, 'posts/post_page.html', {
-        'post': post
+
+def post_detail(request, slug):
+    # post = Post.objects.get(slug=slug)
+    post = get_object_or_404(Post, slug=slug, is_published=True)
+    comments = post.comments.filter(is_active=True).order_by('-created_at')
+
+    if request.method == 'POST':
+        if not request.user.is_authenticated:
+            return redirect('login')
+
+        form = CommentForm(request.POST)
+        if form.is_valid():
+            comment = form.save(commit=False)
+            comment.post = post
+            comment.user = request.user
+            comment.save()
+            return redirect('posts:page', slug=slug)
+    else:
+        form = CommentForm()
+
+    return render(request, 'posts/post_detail.html', {
+        'post': post,
+        'comments': comments,
+        'form': form
     })
+
 
 @login_required(login_url="/users/login/")
 def post_new(request):

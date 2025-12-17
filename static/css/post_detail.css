@@ -56,6 +56,7 @@
 /* Back Button */
 .back-btn {
     display: inline-block;
+    margin: 35px 0;
     margin-top: 35px;
     text-decoration: none;
     background: #222;
@@ -79,4 +80,69 @@
     .post-detail-title {
         font-size: 2rem;
     }
+}
+
+
+
+/* comments  */
+.comments-section {
+    margin-top: 50px;
+}
+
+.comments-title {
+    font-size: 22px;
+    margin-bottom: 20px;
+}
+
+/* Form */
+.comment-form {
+    margin-bottom: 30px;
+}
+
+.comment-textarea {
+    width: 100%;
+    padding: 12px;
+    border-radius: 10px;
+    border: 1px solid #1e293b;
+    /* background: #020617; */
+    color: #333;
+    resize: none;
+}
+
+.btn-comment {
+    text-decoration: none;
+    background: #222;
+    color: #fff;
+    padding: 12px 22px;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    transition: 0.3s ease;
+}
+
+.btn-comment:hover {
+    background: #333;
+}
+
+/* Comment Card */
+.comment-card {
+    /* background: #020617; */
+    border: 1px solid #1e293b;
+    border-radius: 12px;
+    padding: 14px;
+    margin-bottom: 15px;
+}
+
+.comment-header {
+    display: flex;
+    justify-content: space-between;
+    font-size: 13px;
+    color: #94a3b8;
+    margin-bottom: 6px;
+}
+
+.login-msg {
+    margin: 2rem 0;
+}
+.login-msg a {
+    color: #38bdf8;
 }
