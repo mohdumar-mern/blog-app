@@ -80,7 +80,7 @@ myproject/
 
 ```bash
 git clone https://github.com/mohdumar-mern/blog-app
-cd myproject
+cd blog-app
 
 py -m venv .venv
 source .venv/bin/activate   # Linux/Mac
