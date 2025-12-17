@@ -5,7 +5,9 @@ from django.contrib.auth.decorators import login_required
 
 
 def posts_list(request):
-    posts = Post.objects.all().order_by('-date')
+    # posts = Post.objects.all().order_by('-created_at')
+    posts = Post.objects.filter(is_published=True).select_related("author").order_by('-created_at')
+
     return render(request, 'posts/posts_list.html', {
         'posts': posts
     })

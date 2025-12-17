@@ -10,30 +10,43 @@
 {% block content %}
 <section class="posts-section">
 
+    <!-- Header -->
     <header class="posts-header">
         <h1 class="page-title">Latest Posts</h1>
     </header>
 
     {% if posts %}
-        <div class="posts-grid">
+        <div class="posts-container">
             {% for post in posts %}
                 <article class="post-card">
-
-                    <h2 class="post-title">
-                        <a href="{% url 'posts:page' slug=post.slug %}">
+                      <!-- 🔹 Post Header -->
+                    <header class="post-header">
+                        <h2 class="post-title">
+                             <a href="{% url 'posts:page' slug=post.slug %}">
                             {{ post.title }}
                         </a>
-                    </h2>
+                        </h2>
+                        <div class="post-meta">
+                            <span class="post-author">
+                                By {{ post.author.get_username }}
+                            </span>
 
-                    <div class="post-meta">
-                        <span class="post-author">By {{ post.by.username }}</span>
-                        <time datetime="{{ post.date|date:'Y-m-d' }}" class="post-date">
-                            {{ post.date|date:"F d, Y" }}
-                        </time>
-                    </div>
-
+                            <time datetime="{{ post.created_at|date:'Y-m-d' }}"
+                                class="post-date">
+                                {{ post.created_at|date:"F d, Y" }}
+                            </time>
+                        </div>
+                    </header>
+                     <!-- 🔹 Post Banner -->
+                    {% if post.banner %}
+                    <figure class="post-image">
+                        <img src="{{ post.banner.url }}" alt="{{ post.title }}">
+                    </figure>
+                    {% endif %}
+                   
+                    <!-- Body preview -->
                     <div class="post-body">
-                        {{ post.body }}
+                        {{ post.body|truncatewords:40 }}
                     </div>
 
                 </article>
