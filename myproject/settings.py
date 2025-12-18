@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-btgpig^h^@753fax3s(2@xm7v2vf5$=arl0q1in&*)u+@a4pqb
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['blog-app-jpq9.onrender.com','https://blog-app-1-g1dw.onrender.com', 'localhost','127.0.0.1']
+ALLOWED_HOSTS = ['blog-app-jpq9.onrender.com','blog-app-1-g1dw.onrender.com', 'localhost','127.0.0.1']
 
 
 # Application definition
