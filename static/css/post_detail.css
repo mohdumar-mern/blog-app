@@ -146,3 +146,37 @@
 .login-msg a {
     color: #38bdf8;
 }
+
+.comment {
+    margin-bottom: 20px;
+    padding: 10px;
+    border-left: 3px solid #ddd;
+}
+
+.comment-reply {
+   /* display: flex;
+    justify-content: space-between; */
+    font-size: 13px;
+    color: #94a3b8;
+    margin-bottom: 6px;
+}
+.comment-reply p {
+    margin-top: 5px;
+    color: #222;
+}
+
+.replies {
+       display: flex;
+    justify-content: space-between;
+    margin-left: 20px;
+    border-left: 1px solid #ccc;
+    padding-left: 10px;
+}
+
+.toggle-replies {
+    cursor: pointer;
+    background: none;
+    border: none;
+    color: #007bff;
+    margin-bottom: 5px;
+}

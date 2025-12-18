@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from .models import Post
+from .models import Post, Comment
 from django.db.models import Count,Q
 from .forms import PostForm, CommentForm
 from django.contrib.auth.decorators import login_required
@@ -24,28 +24,42 @@ def posts_list(request):
 
 
 def post_detail(request, slug):
-    # post = Post.objects.get(slug=slug)
     post = get_object_or_404(Post, slug=slug, is_published=True)
-    comments = post.comments.filter(is_active=True).order_by('-created_at')
 
-    if request.method == 'POST':
+    comments = Comment.objects.filter(
+        post=post,
+        parent__isnull=True,
+        is_active=True
+    ).order_by("-created_at")
+
+    if request.method == "POST":
         if not request.user.is_authenticated:
-            return redirect('login')
+            return redirect("login")
 
         form = CommentForm(request.POST)
+
         if form.is_valid():
+            parent = None
+            parent_id = request.POST.get("parent_id")
+
+            if parent_id:
+                parent = Comment.objects.filter(id=parent_id).first()
+
             comment = form.save(commit=False)
             comment.post = post
             comment.user = request.user
+            comment.parent = parent
             comment.save()
-            return redirect('posts:page', slug=slug)
+
+            return redirect("posts:page", slug=slug)
+
     else:
         form = CommentForm()
 
-    return render(request, 'posts/post_detail.html', {
-        'post': post,
-        'comments': comments,
-        'form': form
+    return render(request, "posts/post_detail.html", {
+        "post": post,
+        "comments": comments,
+        "form": form
     })
 
 
