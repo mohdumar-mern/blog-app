@@ -29,12 +29,6 @@
                 </li>
 
                 <li>
-                    <a href="{% url 'about' %}">
-                        <span>About</span>
-                    </a>
-                </li>
-
-                <li>
                     <a href="{% url 'posts:list' %}">
                         <span>Posts</span>
                     </a>
@@ -84,7 +78,6 @@
             <h4>Quick Links</h4>
             <ul>
                 <li><a href="{% url 'home' %}">Home</a></li>
-                <li><a href="{% url 'about' %}">About</a></li>
                 <li><a href="{% url 'posts:list' %}">Posts</a></li>
                 {% comment %} <li><a href="{% url 'contact' %}">Contact</a></li> {% endcomment %}
             </ul>
